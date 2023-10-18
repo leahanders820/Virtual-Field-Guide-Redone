@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams, Link } from 'react-router-dom';
 
 // Uncomment import statements below after building queries and mutations
 import { useMutation, useQuery } from "@apollo/client";
@@ -75,9 +76,11 @@ const Users = () => {
                 );
               })}
             </select> */}
+            <Link to="/journal">
             <button className="btn btn-info" type="submit">
               Sign Up
             </button>
+            </Link>
           </form>
         )}
       </div>
