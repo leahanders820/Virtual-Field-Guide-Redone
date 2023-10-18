@@ -4,7 +4,7 @@ const typeDefs = `#graphql
         name: String!
     }
 
-    type Matchup {
+    type Users {
         _id: ID!
         tech1: String!
         tech2: String!
@@ -14,12 +14,12 @@ const typeDefs = `#graphql
 
     type Query {
         tech: [Tech]
-        matchups(_id: String): [Matchup]
+        users(_id: String): [Users]
     }
 
     type Mutation {
-        createMatchup(tech1: String!, tech2: String!): Matchup
-        createVote(_id: String!, techNum: Int!): Matchup
+        createUsers(tech1: String!, tech2: String!): Users
+        createVote(_id: String!, techNum: Int!): Users
     }
 `
 

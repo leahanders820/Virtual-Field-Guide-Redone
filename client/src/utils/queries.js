@@ -9,9 +9,9 @@ export const QUERY_TECH = gql`
   }
 `;
 
-export const QUERY_MATCHUPS = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
+export const QUERY_USERS = gql`
+  query users($_id: String) {
+    users(_id: $_id) {
       _id
       tech1
       tech2

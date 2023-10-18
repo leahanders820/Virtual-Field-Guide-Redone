@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 // Uncomment import statements below after building queries and mutations
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_TECH } from '../utils/queries';
-import { CREATE_MATCHUP } from '../utils/mutations';
+import { CREATE_USERS } from '../utils/mutations';
 
-const Matchup = () => {
+const Users = () => {
   const {loading, data} = useQuery(QUERY_TECH);
 
   const techList = data?.tech || [];
@@ -17,7 +17,7 @@ const Matchup = () => {
   });
   let navigate = useNavigate();
 
-  const [createMatchup, {error}] = useMutation(CREATE_MATCHUP);
+  const [createUsers, {error}] = useMutation(CREATE_USERS);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -28,11 +28,11 @@ const Matchup = () => {
     event.preventDefault();
 
     try {
-      const {data} = await createMatchup({
+      const {data} = await createUsers({
         variables: {...formData},
       });
 
-      navigate(`/matchup/${data.createMatchup._id}`);
+      navigate(`/users/${data.createUsers._id}`);
     } catch (err) {
       console.error(err);
     }
@@ -46,7 +46,7 @@ const Matchup = () => {
   return (
     <div className="card bg-white card-rounded w-25">
       <div className="card-header bg-dark text-center">
-        <h1>Let's create a matchup!</h1>
+        <h1>Let's create a users!</h1>
       </div>
       <div className="card-body m-5">
         {loading ? (
@@ -74,7 +74,7 @@ const Matchup = () => {
             })}
           </select>
           <button className="btn btn-danger" type="submit">
-            Create Matchup!
+            Create Users!
           </button>
         </form>}
       </div>
@@ -83,4 +83,4 @@ const Matchup = () => {
   );
 };
 
-export default Matchup;
+export default Users;

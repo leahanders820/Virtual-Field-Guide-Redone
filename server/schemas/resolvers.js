@@ -1,22 +1,22 @@
-const { Matchup, Tech } = require('../models');
+const { Users, Tech } = require('../models');
 
 const resolvers = {
     Query: {
         tech: async () => {
             return Tech.find({});
         },
-        matchups: async (parents, { _id }) => {
+        users: async (parents, { _id }) => {
             const params = _id ? { _id } : {};
-            return Matchup.find(params)
+            return Users.find(params)
         }
     },
     Mutation: {
-        createMatchup: async (parents, args) => {
-            const matchup = await Matchup.create(args);
-            return matchup;
+        createUsers: async (parents, args) => {
+            const users = await Users.create(args);
+            return users;
         },
         createVote: async (parent, { _id, techNum }) => {
-            const vote = await Matchup.findOneAndUpdate(
+            const vote = await Users.findOneAndUpdate(
                 { _id },
                 { $inc: { [`tech${techNum}_votes`]: 1 } },
                 { new: true }

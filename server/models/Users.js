@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const matchupSchema = new Schema({
+const userschema = new Schema({
   tech1: {
     type: String,
     required: true,
@@ -19,6 +19,6 @@ const matchupSchema = new Schema({
   },
 });
 
-const Matchup = model('Matchup', matchupSchema);
+const Users = model('Users', userschema);
 
-module.exports = Matchup;
+module.exports = Users;

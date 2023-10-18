@@ -1,4 +1,4 @@
 const Tech = require('./Tech');
-const Matchup = require('./Matchup');
+const Users = require('./Users');
 
-module.exports = { Tech, Matchup };
+module.exports = { Tech, Users };
