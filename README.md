@@ -6,7 +6,7 @@ The Virtual Field Guide is your digital explorer's journal. Make an account and 
 
 ## Technologies Used
 
-This is a MERN stack application. It uses MongoDB and GraphQL for the server side functionality, node.js and express for the middleware, and React for the front end. Other technologies used include cors, JWT, and bcrypt. 
+This is a MERN stack application. It uses MongoDB, mongoose, and GraphQL for the server side functionality, node.js and express for the middleware, and React for the front end. Other technologies used include cors, JWT, and bcrypt. 
 
 
 ## Usage
