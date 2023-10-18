@@ -5,7 +5,7 @@ import earth from "../assets/rotatingearthteal.gif";
 import darkearth from "../assets/rotatingearth.gif";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_USERS, {
+  const { data } = useQuery(QUERY_USERS, {
     fetchPolicy: "no-cache",
   });
 
@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div className="card bg-primary text-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
+      <div className="text-center">
         <h1>Welcome to The Virtual Field Guide!</h1>
       </div>
       <div className="card-body m-5 text-center">
