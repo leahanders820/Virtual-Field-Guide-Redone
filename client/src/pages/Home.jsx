@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_USERS } from '../utils/queries';
-import earth from '../assets/rotatingearthteal.gif';
-import darkearth from '../assets/rotatingearth.gif';
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_USERS } from "../utils/queries";
+import earth from "../assets/rotatingearthteal.gif";
+import darkearth from "../assets/rotatingearth.gif";
 
 const Home = () => {
-  const {loading, data} = useQuery(QUERY_USERS, {
-    fetchPolicy: "no-cache"
+  const { loading, data } = useQuery(QUERY_USERS, {
+    fetchPolicy: "no-cache",
   });
 
   const usersList = data?.users || [];
@@ -17,29 +17,13 @@ const Home = () => {
         <h1>Welcome to The Virtual Field Guide!</h1>
       </div>
       <div className="card-body m-5 text-center">
-        
         <h2>Log In to Begin Exploring</h2>
         <img src={darkearth}></img>
         <form>
-          <input type='email'>
-          </input>
-          <input type='password'></input>
-          <button className="btn btn-sm btn-light">Log In</button> 
+          <input type="email"></input>
+          <input type="password"></input>
+          <button className="btn btn-sm btn-light">Log In</button>
         </form>
-        {/* {loading ? (
-          <div>Loading ...</div>
-        ) : (
-        <ul className="square">
-          {usersList.map((users) => {
-            return (
-              <li key={users._id}>
-                <Link to={{ pathname: `/users/${users._id}` }}>
-                  {users.email} vs. {users.tech2}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>)} */}
       </div>
       <div className="card-footer text-center m-3">
         <h2>Don't have an account?</h2>
