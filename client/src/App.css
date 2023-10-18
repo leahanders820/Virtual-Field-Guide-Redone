@@ -554,13 +554,6 @@ a:hover {
   padding-bottom: 1.625rem;
 }
 
-.text-uppercase {
-  text-transform: uppercase !important;
-}
-
-.text-lowercase {
-  text-transform: lowercase !important;
-}
 
 .text-center {
   text-align: center !important;
@@ -578,17 +571,7 @@ a:hover {
   color: #2d3e50 !important;
 }
 
-.text-info {
-  color: #1bbc9b !important;
-}
 
-.text-danger {
-  color: #e64c66 !important;
-}
-
-.text-default {
-  color: #aeaeae !important;
-}
 
 .text-light {
   color: #d9e9e8 !important;
@@ -602,13 +585,7 @@ a:hover {
   color: #ffffff !important;
 }
 
-.text-black {
-  color: #000000 !important;
-}
 
-.text-link {
-  color: #1b89bc !important;
-}
 
 
 .bg-primary {
