@@ -7,6 +7,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_USERS } from "../utils/queries";
 import { CREATE_USERS } from "../utils/mutations";
 
+import loadIcon from '../assets/newload.gif';
+
 const Users = () => {
   const { loading, data } = useQuery(QUERY_USERS);
 
@@ -49,13 +51,10 @@ const Users = () => {
   };
 
   return (
-    <div className="card bg-white card-rounded w-25">
-      <div className="card-header bg-dark text-center">
-        <h1>Create an Account</h1>
-      </div>
+    <div className="card bg-transparent card-rounded w-25">
       <div className="card-body m-5 text-center">
         {loading ? (
-          <div>Loading ...</div>
+          <div><img src={loadIcon}/></div>
         ) : (
           <form onSubmit={handleFormSubmit}>
             <label>Email </label>
