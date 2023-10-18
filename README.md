@@ -2,7 +2,7 @@
 
 ## Description
 
-The Virtual Field Guide is your digital explorer's journal. Make an account and have access to a map where you can learn about the flora, fauna, and landmarks of different countries. Save information you find interesting and have your own journal to take notes on new discoveries.
+The Virtual Field Guide is your digital explorer's journal. Make an account and have access to a map where you can learn about the flora, fauna, and landmarks of different countries. Save information you find interesting and have your own journal to take notes on new discoveries. WIP
 
 
 ## Usage
