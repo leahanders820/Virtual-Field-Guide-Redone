@@ -1,4 +1,4 @@
-const { Users, Tech } = require('../models');
+const { Users } = require('../models');
 
 const { ApolloError } = require('apollo-server-errors');
 
@@ -13,9 +13,7 @@ const jwt = require('jsonwebtoken');
 
 const resolvers = {
     Query: {
-        tech: async () => {
-            return Tech.find({});
-        },
+        
         users: async (parents, { _id }) => {
             const params = _id ? { _id } : {};
             return Users.find(params)
@@ -25,7 +23,7 @@ const resolvers = {
         async registerUser(_, {registerInput: {email, password}}) {
             const oldUser = await Users.findOne({ email });
             if (oldUser) {
-                throw new ApolloError('A user is already registered with the email' = email, 'USER_ALREADY_EXISTS');
+                throw new ApolloError('A user is already registered with the email' + email, 'USER_ALREADY_EXISTS');
             }
             const encryptedPassword = await bcrypt.hash(password, 10);
 
@@ -52,7 +50,7 @@ const resolvers = {
             };
         },
         async loginUser(_, {loginInput: {email, password}}) {
-            const User = await Users.findOne({ email });
+            const user = await Users.findOne({ email });
 
             if (user && (await bcrypt.compare(password, user.password))) {
 
