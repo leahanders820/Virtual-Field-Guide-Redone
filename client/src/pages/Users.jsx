@@ -2,19 +2,20 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams, Link } from 'react-router-dom';
 
-// Uncomment import statements below after building queries and mutations
+
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_TECH } from "../utils/queries";
+import { QUERY_USERS } from "../utils/queries";
 import { CREATE_USERS } from "../utils/mutations";
 
 const Users = () => {
-  const { loading, data } = useQuery(QUERY_TECH);
+  const { loading, data } = useQuery(QUERY_USERS);
 
-  const techList = data?.tech || [];
+  const userList = data?.user || [];
 
   const [formData, setFormData] = useState({
-    tech1: "one",
-    tech2: "two",
+    email:'',
+    password:''
+    
   });
   let navigate = useNavigate();
 
@@ -33,15 +34,18 @@ const Users = () => {
         variables: { ...formData },
       });
 
+      if (data.createUsers) {
+        navigate(`/users/${data.createUsers._id}`);
+      } else {
+        console.error("User registration failed.");
+      }
+
       navigate(`/users/${data.createUsers._id}`);
     } catch (err) {
       console.error(err);
     }
 
-    setFormData({
-      tech1: "JavaScript",
-      tech2: "JavaScript",
-    });
+    
   };
 
   return (
@@ -56,26 +60,10 @@ const Users = () => {
           <form onSubmit={handleFormSubmit}>
             <label>Email </label>
             <input type='email'></input>
-            {/* <select name="tech1" onChange={handleInputChange}>
-              {techList.map((tech) => {
-                return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
-                  </option>
-                );
-              })}
-            </select> */}
+           
             <label>Password </label>
             <input type='password'></input>
-            {/* <select name="tech2" onChange={handleInputChange}>
-              {techList.map((tech) => {
-                return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
-                  </option>
-                );
-              })}
-            </select> */}
+            
             <Link to="/journal">
             <button className="btn btn-info" type="submit">
               Sign Up
