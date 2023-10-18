@@ -5,11 +5,35 @@ const typeDefs = `#graphql
     }
 
     type Users {
-        _id: ID!
-        tech1: String!
-        tech2: String!
-        tech1_votes: Int
-        tech2_votes: Int
+        email: String
+        password: String
+        token: String
+    }
+
+    type RegisterInput {
+        email: String
+        password: String
+    }
+
+    type LoginInput {
+        email: String
+        password: String
+    }
+
+    type Animal {
+        name: String
+        description: String
+
+    }
+
+    type Plant {
+        name: String
+        description: String
+    }
+
+    type Landmark {
+        name: String
+        description: String
     }
 
     type Query {
@@ -18,8 +42,8 @@ const typeDefs = `#graphql
     }
 
     type Mutation {
-        createUsers(tech1: String!, tech2: String!): Users
-        createVote(_id: String!, techNum: Int!): Users
+        registerUser(RegisterInput: RegisterInput): Users
+        loginUser(loginInput: loginInput): User
     }
 `
 
