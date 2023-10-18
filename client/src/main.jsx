@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import Home from './pages/Home';
 import Users from './pages/Users';
-import Vote from './pages/Vote';
+import Journal from './pages/Journal';
 import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         path: '/users',
         element: <Users />
       }, {
-        path: '/users/:id',
-        element: <Vote />
+        path: '/journal',
+        element: <Journal />
       },
     ],
   },
