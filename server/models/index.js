@@ -1,4 +1,7 @@
-const Tech = require('./Tech');
-const Users = require('./Users');
 
-module.exports = { Tech, Users };
+const Users = require('./Users');
+const Animals = require('./Animals');
+const Plants = require('./Plants');
+const Landmarks = require('./Landmarks');
+
+module.exports = { Users, Animals, Plants, Landmarks };
