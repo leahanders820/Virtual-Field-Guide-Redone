@@ -1,23 +1,24 @@
-const typeDefs = `#graphql
-    type Tech {
-        _id: ID!
-        name: String!
-    }
+const { gql } = require('apollo-server');
 
+
+
+
+const typeDefs = gql`
+    
     type Users {
         email: String
         password: String
         token: String
     }
 
-    type RegisterInput {
-        email: String
-        password: String
+    input RegisterInput {
+        email: String!
+        password: String!
     }
 
-    type LoginInput {
-        email: String
-        password: String
+    input LoginInput {
+        email: String!
+        password: String!
     }
 
     type Animal {
@@ -37,13 +38,13 @@ const typeDefs = `#graphql
     }
 
     type Query {
-        tech: [Tech]
+       
         users(_id: String): [Users]
     }
 
     type Mutation {
-        registerUser(RegisterInput: RegisterInput): Users
-        loginUser(loginInput: loginInput): User
+        registerUser(registerInput: RegisterInput): Users
+        loginUser(loginInput: LoginInput): Users
     }
 `
 
