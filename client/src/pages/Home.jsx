@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USERS } from '../utils/queries';
+import earth from '../assets/rotatingearthteal.gif';
+import darkearth from '../assets/rotatingearth.gif';
 
 const Home = () => {
   const {loading, data} = useQuery(QUERY_USERS, {
@@ -10,13 +12,21 @@ const Home = () => {
   const usersList = data?.users || [];
 
   return (
-    <div className="card bg-white card-rounded w-50">
+    <div className="card bg-primary text-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
         <h1>Welcome to The Virtual Field Guide!</h1>
       </div>
-      <div className="card-body m-5">
-        <h2>Here is a list of users you can vote on:</h2>
-        {loading ? (
+      <div className="card-body m-5 text-center">
+        
+        <h2>Log In to Begin Exploring</h2>
+        <img src={darkearth}></img>
+        <form>
+          <input type='email'>
+          </input>
+          <input type='password'></input>
+          <button className="btn btn-sm btn-light">Log In</button> 
+        </form>
+        {/* {loading ? (
           <div>Loading ...</div>
         ) : (
         <ul className="square">
@@ -24,17 +34,17 @@ const Home = () => {
             return (
               <li key={users._id}>
                 <Link to={{ pathname: `/users/${users._id}` }}>
-                  {users.tech1} vs. {users.tech2}
+                  {users.email} vs. {users.tech2}
                 </Link>
               </li>
             );
           })}
-        </ul>)}
+        </ul>)} */}
       </div>
       <div className="card-footer text-center m-3">
-        <h2>Ready to create a new users?</h2>
+        <h2>Don't have an account?</h2>
         <Link to="/users">
-          <button className="btn btn-lg btn-danger">Create Users!</button>
+          <button className="btn btn-lg btn-primary">Sign Up</button>
         </Link>
       </div>
     </div>
