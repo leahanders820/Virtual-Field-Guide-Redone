@@ -7,8 +7,6 @@ export const QUERY_USERS = gql`
     users(_id: $_id) {
       _id
       email
-      
-      
     }
   }
 `;
