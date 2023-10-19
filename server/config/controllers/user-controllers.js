@@ -4,6 +4,11 @@ const userController = {
   // Get all users
   getAllusers: async (req, res) => {
     try {
+
+    
+      const { email, password } = req.query;
+
+
       const users = await Users.find();
       res.json(users);
     } catch (error) {
