@@ -5,11 +5,6 @@ import earth from "../assets/rotatingearthteal.gif";
 import darkearth from "../assets/rotatingearth.gif";
 
 const Home = () => {
-  const { data } = useQuery(QUERY_USERS, {
-    fetchPolicy: "no-cache",
-  });
-
-  const usersList = data?.users || [];
 
   return (
     <div className="card bg-primary text-white card-rounded w-50">
@@ -27,7 +22,7 @@ const Home = () => {
       </div>
       <div className="card-footer text-center m-3">
         <h2>Don't have an account?</h2>
-        <Link to="/users">
+        <Link to="/signup">
           <button className="btn btn-lg btn-primary">Sign Up</button>
         </Link>
       </div>
