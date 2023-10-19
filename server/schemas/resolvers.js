@@ -56,7 +56,7 @@ const resolvers = {
 
                 const token = jwt.sign(
                     { user_id: user._id, email },
-                    'UNSAFE_STRING',
+                    '...',
                     {
                         expiresIn: '7h'
                     }
